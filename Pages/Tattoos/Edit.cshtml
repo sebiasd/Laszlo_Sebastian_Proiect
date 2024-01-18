@@ -1,0 +1,65 @@
+﻿@page
+@model Laszlo_Sebastian_Proiect.Pages.Tattoos.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Tattoo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Tattoo.Id" />
+            <div class="form-group">
+                <label asp-for="Tattoo.ClientName" class="control-label"></label>
+                <input asp-for="Tattoo.ClientName" class="form-control" />
+                <span asp-validation-for="Tattoo.ClientName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tattoo.Email" class="control-label"></label>
+                <input asp-for="Tattoo.Email" class="form-control" />
+                <span asp-validation-for="Tattoo.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tattoo.Phone" class="control-label"></label>
+                <input asp-for="Tattoo.Phone" class="form-control" />
+                <span asp-validation-for="Tattoo.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tattoo.Location" class="control-label"></label>
+                <input asp-for="Tattoo.Location" class="form-control" />
+                <span asp-validation-for="Tattoo.Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tattoo.TattooArtist" class="control-label"></label>
+                <input asp-for="Tattoo.TattooArtist" class="form-control" />
+                <span asp-validation-for="Tattoo.TattooArtist" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tattoo.Date" class="control-label"></label>
+                <input asp-for="Tattoo.Date" class="form-control" />
+                <span asp-validation-for="Tattoo.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Tattoo.AgeConfirmation" /> @Html.DisplayNameFor(model => model.Tattoo.AgeConfirmation)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

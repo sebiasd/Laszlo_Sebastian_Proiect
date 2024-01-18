@@ -1,0 +1,61 @@
+﻿@page
+@model Laszlo_Sebastian_Proiect.Pages.Tattoos.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Tattoo</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tattoo.ClientName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tattoo.ClientName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tattoo.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tattoo.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tattoo.Phone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tattoo.Phone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tattoo.Location)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tattoo.Location)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tattoo.TattooArtist)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tattoo.TattooArtist)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tattoo.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tattoo.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tattoo.AgeConfirmation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tattoo.AgeConfirmation)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Tattoo?.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

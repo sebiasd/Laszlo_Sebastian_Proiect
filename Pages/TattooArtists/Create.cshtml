@@ -1,0 +1,53 @@
+﻿@page
+@model Laszlo_Sebastian_Proiect.Pages.TattooArtists.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TattooArtist</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TattooArtist.ArtistName" class="control-label"></label>
+                <input asp-for="TattooArtist.ArtistName" class="form-control" />
+                <span asp-validation-for="TattooArtist.ArtistName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TattooArtist.Description" class="control-label"></label>
+                <input asp-for="TattooArtist.Description" class="form-control" />
+                <span asp-validation-for="TattooArtist.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TattooArtist.LocationID" class="control-label">Location</label>
+                <select asp-for="TattooArtist.LocationID" class="form-control" asp-items="ViewBag.LocationID">
+                    <option value="">-- Select Location --</option>
+                </select>
+            
+                <div class="form-group">
+                    <label asp-for="TattooArtist.StyleID" class="control-label">Style</label>
+                    <select asp-for="TattooArtist.StyleID" class="form-control" asp-items="ViewBag.StyleID">
+                        <option value="">-- Select Style --</option>
+                    </select>
+                    <span asp-validation-for="TattooArtist.StyleID" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

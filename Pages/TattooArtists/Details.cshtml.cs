@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +16,7 @@ namespace Laszlo_Sebastian_Proiect.Pages.TattooArtists
             _context = context;
         }
 
-      public TattooArtist TattooArtist { get; set; } = default!; 
+        public TattooArtist TattooArtist { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,15 +25,20 @@ namespace Laszlo_Sebastian_Proiect.Pages.TattooArtists
                 return NotFound();
             }
 
-            var tattooartist = await _context.TattooArtist.FirstOrDefaultAsync(m => m.ID == id);
+            var tattooartist = await _context.TattooArtist
+                .Include(t => t.Location)
+                .Include(t => t.Style)
+                .FirstOrDefaultAsync(m => m.ID == id);
+
             if (tattooartist == null)
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 TattooArtist = tattooartist;
             }
+
             return Page();
         }
     }

@@ -30,14 +30,26 @@
                 <span asp-validation-for="Tattoo.Phone" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Tattoo.Location" class="control-label"></label>
-                <input asp-for="Tattoo.Location" class="form-control" />
-                <span asp-validation-for="Tattoo.Location" class="text-danger"></span>
+                <label asp-for="Tattoo.LocationID" class="control-label">Location</label>
+                <select asp-for="Tattoo.LocationID" class="form-control" asp-items="ViewBag.LocationID">
+                    <option value="">-- Select Location --</option>
+                </select>
+
+                <span asp-validation-for="Tattoo.LocationID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Tattoo.TattooArtist" class="control-label"></label>
-                <input asp-for="Tattoo.TattooArtist" class="form-control" />
+                <select asp-for="Tattoo.TattooArtistID" class="form-control" asp-items="ViewBag.TattooArtistID">
+                    <option value="">-- Select Artist --</option>
+                </select>
                 <span asp-validation-for="Tattoo.TattooArtist" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tattoo.StyleID" class="control-label">Style</label>
+                <select asp-for="Tattoo.StyleID" class="form-control" asp-items="ViewBag.StyleID">
+                    <option value="">-- Select Style --</option>
+                </select>
+                <span asp-validation-for="Tattoo.StyleID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Tattoo.Date" class="control-label"></label>

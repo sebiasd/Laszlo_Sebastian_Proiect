@@ -27,8 +27,15 @@
             @Html.DisplayNameFor(model => model.TattooArtist.Location)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TattooArtist.Location.ID)
+            @Html.DisplayFor(model => model.TattooArtist.Location.LocationName)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TattooArtist.Style)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TattooArtist.Style.StyleName)
+        </dd>
+
     </dl>
 </div>
 <div>

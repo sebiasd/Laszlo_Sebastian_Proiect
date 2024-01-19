@@ -2,10 +2,10 @@
 @model Laszlo_Sebastian_Proiect.Pages.Tattoos.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Appointments";
 }
 
-<h1>Index</h1>
+<h1>Make an appointment</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -29,6 +29,9 @@
                 @Html.DisplayNameFor(model => model.Tattoo[0].TattooArtist)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Tattoo[0].Style)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Tattoo[0].Date)
             </th>
             <th>
@@ -50,10 +53,13 @@
                 @Html.DisplayFor(modelItem => item.Phone)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Location)
+                @Html.DisplayFor(modelItem => item.Location.LocationName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TattooArtist)
+                @Html.DisplayFor(modelItem => item.TattooArtist.ArtistName)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Style.StyleName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)

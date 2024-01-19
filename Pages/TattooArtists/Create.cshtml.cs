@@ -23,7 +23,7 @@ namespace Laszlo_Sebastian_Proiect.Pages.TattooArtists
         {
             ViewData["LocationID"] = new SelectList(_context.Set<Location>(), "ID", "LocationName");
 
-            ViewData["StyleID"] = new SelectList(_context.Set<Style>(), "ID", "SyleName");
+            ViewData["StyleID"] = new SelectList(_context.Set<Style>(), "ID", "StyleName");
             
             return Page();
 

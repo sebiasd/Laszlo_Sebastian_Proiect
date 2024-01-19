@@ -26,7 +26,11 @@ namespace Laszlo_Sebastian_Proiect.Pages.TattooArtists
             if (_context.TattooArtist != null)
             {
                 TattooArtist = await _context.TattooArtist
-                .Include(t => t.Location).ToListAsync();
+                .Include(t => t.Location)
+                .Include(t => t.Style)
+
+                .ToListAsync();
+                
             }
         }
     }

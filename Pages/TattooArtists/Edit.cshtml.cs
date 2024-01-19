@@ -36,7 +36,9 @@ namespace Laszlo_Sebastian_Proiect.Pages.TattooArtists
                 return NotFound();
             }
             TattooArtist = tattooartist;
-           ViewData["LocationID"] = new SelectList(_context.Location, "ID", "ID");
+            ViewData["LocationID"] = new SelectList(_context.Set<Location>(), "ID", "LocationName");
+
+            ViewData["StyleID"] = new SelectList(_context.Set<Style>(), "ID", "StyleName");
             return Page();
         }
 

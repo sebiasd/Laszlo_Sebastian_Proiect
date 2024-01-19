@@ -28,7 +28,16 @@ namespace Laszlo_Sebastian_Proiect.Pages.Tattoos
                 return NotFound();
             }
 
-            var tattoo = await _context.Tattoo.FirstOrDefaultAsync(m => m.Id == id);
+            var tattoo = await _context.Tattoo
+                   
+                .Include(t => t.Location)
+                .Include(t => t.TattooArtist)
+                .Include(t => t.Style)
+                
+            
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            
             if (tattoo == null)
             {
                 return NotFound();

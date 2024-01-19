@@ -1,10 +1,53 @@
 ﻿@page
-@model IndexModel
+@model Laszlo_Sebastian_Proiect.Pages.IndexModel
+
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <!-- Add any additional CSS styles here -->
+    <style>
+        body {
+            background-color: #fff; /* White */
+            color: #343a40; /* Very Dark Red */
+        }
+
+        .container {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #990000; /* Very Dark Red */
+        }
+
+        .btn-primary {
+            background-color: #990000; /* Very Dark Red */
+            border-color: #990000; /* Very Dark Red */
+            color: #fff; /* White */
+        }
+
+            .btn-primary:hover {
+                background-color: #800000; /* Slightly Darker Red on Hover */
+                border-color: #800000; /* Slightly Darker Red on Hover */
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Velvet Ink Tattoo Shop</h1>
+        <p>Book your appointment and get ready for a unique tattoo experience!</p>
+
+        <a class="btn btn-primary" href="/Tattoos/Create">Make an Appointment</a>
+    </div>
+
+    
+</body>
+</html>

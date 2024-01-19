@@ -23,9 +23,16 @@ namespace Laszlo_Sebastian_Proiect.Pages.Tattoos
 
         public async Task OnGetAsync()
         {
-            if (_context.Tattoo != null)
+            if (_context.TattooArtist != null)
             {
-                Tattoo = await _context.Tattoo.ToListAsync();
+                Tattoo = await _context.Tattoo
+                .Include(r => r.Location)
+                .Include(r => r.TattooArtist)
+                .Include(r => r.Style)
+
+
+                .ToListAsync();
+
             }
         }
     }

@@ -33,13 +33,19 @@
             @Html.DisplayNameFor(model => model.Tattoo.Location)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Tattoo.Location)
+            @Html.DisplayFor(model => model.Tattoo.Location.LocationName)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Tattoo.TattooArtist)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Tattoo.TattooArtist)
+            @Html.DisplayFor(model => model.Tattoo.TattooArtist.ArtistName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tattoo.Style)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tattoo.Style.StyleName)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Tattoo.Date)

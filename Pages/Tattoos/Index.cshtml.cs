@@ -19,17 +19,30 @@ namespace Laszlo_Sebastian_Proiect.Pages.Tattoos
         }
 
         public IList<Tattoo> Tattoo { get; set; } = default!;
+        public IList<string> TattooArtists { get; set; } = new List<string>();
+        [BindProperty(SupportsGet = true)]
+        public string? SearchClient { get; set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string? searchTattooArtist)
         {
-            if (_context.Tattoo != null)
+            IQueryable<Tattoo> tattooQuery = _context.Tattoo
+                .Include(r => r.Location)
+                .Include(r => r.TattooArtist)
+                .Include(r => r.Style);
+
+            if (!string.IsNullOrEmpty(SearchClient))
             {
-                Tattoo = await _context.Tattoo
-                    .Include(r => r.Location)
-                    .Include(r => r.TattooArtist)
-                    .Include(r => r.Style)
-                    .ToListAsync();
+                tattooQuery = tattooQuery.Where(t => t.ClientName.Contains(SearchClient));
             }
+
+            if (!string.IsNullOrEmpty(searchTattooArtist))
+            {
+                tattooQuery = tattooQuery.Where(t => t.TattooArtist.ArtistName == searchTattooArtist);
+            }
+
+            Tattoo = await tattooQuery.ToListAsync();
+
+            TattooArtists = await _context.Tattoo.Select(t => t.TattooArtist.ArtistName).Distinct().ToListAsync();
         }
     }
 }

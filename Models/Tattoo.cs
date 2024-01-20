@@ -30,7 +30,6 @@ namespace Laszlo_Sebastian_Proiect.Models
         public TattooArtist? TattooArtist { get; set; }
 
 
-        [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Prefferd Date")]
         public DateTime Date { get; set; }

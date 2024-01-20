@@ -7,6 +7,7 @@ namespace Laszlo_Sebastian_Proiect.Models
         public int ID { get; set; }
 
         [Display(Name = "City")]
+        [RegularExpression("^[A-Z][a-z]*$", ErrorMessage = "City must start with an uppercase letter.")]
         public string LocationName { get; set; }
 
         public string Description { get; set; }

@@ -19,11 +19,6 @@ namespace Laszlo_Sebastian_Proiect.Pages.Tattoos
         }
 
         public IList<Tattoo> Tattoo { get; set; } = default!;
-        public IList<string> UniqueArtists { get; set; } = new List<string>();
-        public IList<Tattoo> FilteredTattoos { get; set; } = new List<Tattoo>();
-
-        [BindProperty(SupportsGet = true)]
-        public string SelectedArtist { get; set; } = "";
 
         public async Task OnGetAsync()
         {
@@ -34,14 +29,6 @@ namespace Laszlo_Sebastian_Proiect.Pages.Tattoos
                     .Include(r => r.TattooArtist)
                     .Include(r => r.Style)
                     .ToListAsync();
-
-                // Populate UniqueArtists for dropdown
-                UniqueArtists = Tattoo.Select(t => t.TattooArtist.ArtistName).Distinct().ToList();
-
-                // Apply filtering based on the selected artist
-                FilteredTattoos = string.IsNullOrEmpty(SelectedArtist)
-                    ? Tattoo.ToList()
-                    : Tattoo.Where(t => t.TattooArtist.ArtistName == SelectedArtist).ToList();
             }
         }
     }

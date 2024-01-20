@@ -7,17 +7,6 @@
 
 <h1>Make an appointment</h1>
 
-<div class="mb-3">
-    <label for="artistFilter">Filter by Tattoo Artist:</label>
-    <select id="artistFilter" class="form-control" onchange="applyFilter()">
-        <option value="">All Artists</option>
-        @foreach (var artist in Model.UniqueArtists)
-        {
-            <option value="@artist">@artist</option>
-        }
-    </select>
-</div>
-
 <p>
     <a asp-page="Create">Create New</a>
 </p>
@@ -53,7 +42,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.FilteredTattoos)
+        @foreach (var item in Model.Tattoo)
         {
             <tr>
                 <td>
@@ -89,10 +78,3 @@
         }
     </tbody>
 </table>
-
-<script>
-    function applyFilter() {
-        var selectedArtist = document.getElementById('artistFilter').value;
-        window.location.href = '/Tattoos/Index?artist=' + selectedArtist;
-    }
-</script>
